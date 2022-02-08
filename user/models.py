@@ -29,11 +29,11 @@ class Respondent(models.Model):
         ordering = ['id']  # id排序
 
     def __str__(self):
-        return f'{self.id}-{self.name}-{self.createdom}'
+        return self.name
 
 
 class Profile(AbstractUser):
-    point = models.ImageField(default=0)
+    point = models.IntegerField(default=0)
     certification = models.BooleanField(default=False)
     city = models.ForeignKey(City, on_delete=SET_NULL, null=True)
     respondent = models.ForeignKey(Respondent, on_delete=SET_NULL, null=True)
