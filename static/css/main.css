@@ -1,0 +1,13 @@
+#cases-table td {
+    text-align: center;
+}
+
+#cases-table th {
+    background-color: black;
+    color: aliceblue;
+
+}
+
+#navbar img {
+    width:50px;
+}
