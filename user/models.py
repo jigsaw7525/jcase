@@ -2,7 +2,6 @@ from email.policy import default
 from django.db import models
 from django.contrib.auth.models import AbstractUser
 from django.db.models.deletion import SET_NULL
-from sympy import Point
 # Create your models here.
 
 

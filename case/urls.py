@@ -14,9 +14,10 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path, include
+from django.urls import path
+from . import views
 
+# 空的為首頁，功能內部連結
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('', include('case.urls')),
+    path('', views.cases, name='cases'),
 ]
