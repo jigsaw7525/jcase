@@ -1,4 +1,3 @@
-from email.policy import default
 from django.db import models
 from django.contrib.auth.models import AbstractUser
 from django.db.models.deletion import SET_NULL
@@ -32,10 +31,12 @@ class Respondent(models.Model):
 
 
 class Profile(AbstractUser):
+    email=models.EmailField(unique=True,null=False)
     point = models.IntegerField(default=0)
     certification = models.BooleanField(default=False)
     city = models.ForeignKey(City, on_delete=SET_NULL, null=True)
     respondent = models.ForeignKey(Respondent, on_delete=SET_NULL, null=True)
 
+
     def __str__(self):
-        return f'{self.username}'
+        return self.username
