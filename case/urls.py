@@ -20,4 +20,6 @@ from . import views
 # 空的為首頁，功能內部連結
 urlpatterns = [
     path('', views.cases, name='cases'),
+    path('create_case/', views.create_case, name='create_case'),
+    path('case/<str:id>', views.case, name='case'),
 ]

@@ -2,9 +2,11 @@ from .forms import ProfileForm
 from .models import Profile
 from django.shortcuts import redirect, render
 from django.contrib.auth import login, authenticate, logout
+from django.contrib.auth.decorators import login_required  # 登入後才能做的事
 # Create your views here.
 
 
+@login_required(login_url='login')  # 安全性機制，沒登入就轉跳登入畫面
 def profile(request, id):
     user = Profile.objects.get(id=id)
     print(user)
@@ -63,7 +65,7 @@ def user_login(request):
 
         return render(request, './user/login.html')
 
-
+@login_required(login_url='login')  # 安全性機制，沒登入就轉跳登入畫面
 def user_logout(request):
     if request.user.is_authenticated:
         logout(request)
