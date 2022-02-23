@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% block content %}
+
+
+<h1>update_case</h1>
+<!-- <form action="" method="POST">
+    {% csrf_token %}
+    {{form.as_p}}
+    <button type="submit">建立</button>
+</form> -->
+<form action="" method="POST">
+    {% csrf_token %}
+    {{form.as_p}}
+    <input type="submit" value="確定" name="confirm">
+
+    {% if page == "case" %}
+    <a href="{% url 'case' form.instance.id %}">返回</a>
+    {% else %}
+    <a href="{% url 'profile' request.user.id %}">返回</a>
+    {% endif %}
+</form>
+
+{% endblock %}

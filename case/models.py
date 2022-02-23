@@ -87,6 +87,8 @@ class Case(models.Model):
 
     respondent = models.ManyToManyField(Respondent)
     mode = models.ManyToManyField(Mode)
+    updatedon = models.DateTimeField(auto_now_add=True)
+
 
     class Meta:
         ordering = ['-createdon']

@@ -10,7 +10,9 @@ from django.contrib.auth.decorators import login_required  # 登入後才能做�
 def profile(request, id):
     user = Profile.objects.get(id=id)
     print(user)
-    return render(request, './user/profile.html', {'user': user})
+    response = render(request, './user/profile.html', {'user': user})
+    response.set_cookie('page', 'profile')
+    return response
 
 
 def user_register(request):
@@ -64,6 +66,7 @@ def user_login(request):
     if request.method == 'GET':
 
         return render(request, './user/login.html')
+
 
 @login_required(login_url='login')  # 安全性機制，沒登入就轉跳登入畫面
 def user_logout(request):
